@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <title>Vue tramite CDN</title>
+</head>
+
+<body>
+
+  <h1>Ciao Vue!</h1>
+
+  <div id="app">
+    <div v-if="mostraPersona">
+      <p>Ciao, mi chiamo {{ name }} {{ surname }} ed ho {{ age }} anni.</p>
+    </div>
+
+    <button @click="togglePersona">
+      <!-- V-IF rimuove dal dom e ignetta a seconda delle casistiche che andiamo a specificare -->
+      <span v-if="!mostraPersona">Mostra la persona</span>
+      <span v-if="mostraPersona">Nascondi la persona</span>
+      <!-- Oppure -->
+      <!-- 
+        <span v-if="!mostraPersona">Mostra la persona</span>
+        <span v-else>Nascondi la persona</span> 
+      -->
+    </button>
+
+    <!-- V-SHOW usa il nostro caro CSS per mostrare o meno un dato (display: none;) -->
+    <div v-show="mostraPersona">Sto mostrando la persona</div>
+    <!-- PS: v-show performa meglio rispetto al v-if  -->
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <title>Vue tramite CDN</title>
+  <style>
+    img {
+      width: 50px;
+      height: 50px;
+      margin-right: 20px;
+    }
+    li {
+      display: flex;
+      margin: 20px auto;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Ciao Vue!</h1>
+
+  <div id="app">
+
+    <!-- Attribute Binding AKA come passare dati dinamici agli attributi -->
+    <a v-bind:href="url">Link al mio profilo GitHub</a>
+    <!-- NB: posso scrivere anche solo i due punti per indicare il bind -->
+    <!-- <a :href="url">Altro link al mio profilo GitHub</a> -->
+
+
+
+
+    <div v-if="mostraPersona">
+      <ul>
+        <li v-for="item in persone">
+          <img :src="item.img" :alt="item.name">
+          <h3>{{ item.name }} - {{ item.surname }}</h3>
+        </li>
+        <!-- NB: "item" è un nome a piacere! "persone" invece è il nome dell'array che ho in app.js -->
+      </ul>
+    </div>
+
+    <button @click="togglePersona">
+      <span v-if="!mostraPersona">Mostra la lista di persone</span>
+      <span v-else>Nascondi la lista di persone</span>
+    </button>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

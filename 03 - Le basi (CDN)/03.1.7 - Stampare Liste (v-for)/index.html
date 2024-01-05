@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <title>Vue tramite CDN</title>
+</head>
+
+<body>
+
+  <h1>Ciao Vue!</h1>
+
+  <div id="app">
+    <div v-if="mostraPersona">
+      <ul>
+        <li v-for="item in persone">
+          {{ item.name }} - {{ item.surname }}
+        </li>
+        <!-- NB: "item" è un nome a piacere! "persone" invece è il nome dell'array che ho in app.js -->
+      </ul>
+    </div>
+
+    <button @click="togglePersona">
+      <span v-if="!mostraPersona">Mostra la lista di persone</span>
+      <span v-else>Nascondi la lista di persone</span>
+    </button>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
